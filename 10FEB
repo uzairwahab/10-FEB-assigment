@@ -1,0 +1,68 @@
+Q1. Which function is used to open a file? What are the different modes of opening a file? Explain each mode
+of file opening.
+ANS. fopen() function is used to opening a file.there are four modes to opening the file.
+
+'r'       open for reading (default)
+'w'       open for writing, truncating the file first
+'x'       create a new file and open it for writing
+'a'       open for writing, appending to the end of the file if it exists
+'b'       binary mode
+'t'       text mode (default)
+'+'       open a disk file for updating (reading and writing)
+'U'       universal newline mode (deprecated)
+
+Q2. Why close() function is used? Why is it important to close a file?
+ans.When you write to a file using write() system call, it doesn't writes immediately to the file. So after your operations,
+you have to call close() so that the buffer is flushed to the file and changes persist.
+After calling close(), you cannot use the file descriptor.
+
+Q3. Write a python program to create a text file. Write ‘I want to become a Data Scientist’ in that file. Then
+close the file. Open this file and read the content of the file.
+ANS. f = open('test3.txt ', 'w') 
+     f.write('i want to become a data scientist')
+     f.close()
+     f = open('test3.txt', 'r')
+     f.read()
+     
+Q4. Explain the following with python code: read(), readline() and readlines().
+ans.
+f= open('test.txt', 'w')
+​  
+ f.write('this is my first file')
+21
+f.close()
+f =open('test.txt', 'r')
+f.read()
+'this is my first file'
+f.readline()
+''
+()
+f.readlines()
+[]
+
+
+Q5. Explain why with statement is used with open(). What is the advantage of using with statement and
+open() together?
+ANS.The "with" statement in Python is used to wrap the execution of a block of code with methods defined by a context manager.
+When using the "with" statement with "open()", it ensures that the file is properly closed after all the indented code underneath the "with" statement has been executed,
+even if an exception is raised. This is a convenient and error-resistant way of working with file objects, as it eliminates the need to remember to manually close the file.
+
+The advantage of using the "with" statement and "open()" together is that it provides a simple and safe way of working with files.
+By using the "with" statement, you can ensure that the file is properly closed, even if an exception is raised within the indented block of code. 
+This eliminates the need to manually close the file, and prevents resource leaks, such as an open file that has not been closed. Additionally,
+the "with" statement makes the code more readable and reduces the likelihood of bugs caused by forgetfulness or carelessness. 
+
+
+
+Q6. Explain the write() and writelines() functions. Give a suitable example.
+
+ans. The "write()" function writes a string to a file. The string is specified as an argument to the function, 
+and it writes the string to the file, starting at the current position of the file pointer. The "write()" function returns the number of characters written to the file.
+Here's an example of using the "write()" function:
+with open("sample.txt", "w") as file:
+    file.write("Hello, World!")
+write lines- code
+with open("sample.txt", "w") as file:
+    lines = ["Hello, World!", "How are you?"]
+    file.writelines(line + "\n" for line in lines)
+
